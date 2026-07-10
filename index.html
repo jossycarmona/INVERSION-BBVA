@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Inversión BBVA · DEVIART · Jul 2025 – Jun 2026</title>
+<style>
+  :root {
+    --page: #f9f9f7;
+    --surface: #fcfcfb;
+    --ink: #0b0b0b;
+    --ink-2: #52514e;
+    --muted: #898781;
+    --grid: #e1e0d9;
+    --baseline: #c3c2b7;
+    --border: rgba(11,11,11,0.10);
+    --serie: #2a78d6;
+    --serie-wash: rgba(42,120,214,0.10);
+    --bench: #898781;
+    --good: #006300;
+    --bad: #d03b3b;
+    --navy: #104281;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --page: #0d0d0d;
+      --surface: #1a1a19;
+      --ink: #ffffff;
+      --ink-2: #c3c2b7;
+      --muted: #898781;
+      --grid: #2c2c2a;
+      --baseline: #383835;
+      --border: rgba(255,255,255,0.10);
+      --serie: #3987e5;
+      --serie-wash: rgba(57,135,229,0.14);
+      --bench: #898781;
+      --good: #0ca30c;
+      --bad: #e66767;
+      --navy: #86b6ef;
+    }
+  }
+  :root[data-theme="dark"] {
+    --page: #0d0d0d; --surface: #1a1a19; --ink: #ffffff; --ink-2: #c3c2b7;
+    --muted: #898781; --grid: #2c2c2a; --baseline: #383835; --border: rgba(255,255,255,0.10);
+    --serie: #3987e5; --serie-wash: rgba(57,135,229,0.14); --bench: #898781;
+    --good: #0ca30c; --bad: #e66767; --navy: #86b6ef;
+  }
+  :root[data-theme="light"] {
+    --page: #f9f9f7; --surface: #fcfcfb; --ink: #0b0b0b; --ink-2: #52514e;
+    --muted: #898781; --grid: #e1e0d9; --baseline: #c3c2b7; --border: rgba(11,11,11,0.10);
+    --serie: #2a78d6; --serie-wash: rgba(42,120,214,0.10); --bench: #898781;
+    --good: #006300; --bad: #d03b3b; --navy: #104281;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    background: var(--page);
+    color: var(--ink);
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 1060px; margin: 0 auto; padding: 40px 24px 64px; }
+
+  /* ---------- header ---------- */
+  header { margin-bottom: 28px; }
+  .eyebrow {
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--muted); margin: 0 0 6px;
+  }
+  h1 {
+    font-family: "Avenir Next", "Segoe UI", system-ui, sans-serif;
+    font-size: clamp(24px, 4vw, 32px); font-weight: 600; letter-spacing: -0.01em;
+    margin: 0 0 8px; text-wrap: balance;
+  }
+  .meta { color: var(--ink-2); font-size: 14px; margin: 0; }
+  .meta strong { color: var(--ink); font-weight: 600; }
+
+  /* ---------- KPI row ---------- */
+  .kpis {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+    margin: 24px 0 12px;
+  }
+  @media (max-width: 760px) { .kpis { grid-template-columns: repeat(2, 1fr); } }
+  .kpi {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 16px 18px 14px;
+  }
+  .kpi .label { font-size: 12.5px; color: var(--ink-2); margin-bottom: 4px; }
+  .kpi .value { font-size: 26px; font-weight: 600; letter-spacing: -0.01em; }
+  .kpi.hero .value { font-size: 48px; line-height: 1.05; color: var(--navy); }
+  .kpi .delta { font-size: 12.5px; margin-top: 4px; color: var(--ink-2); }
+  .kpi .delta.up { color: var(--good); }
+  .kpi .delta.down { color: var(--bad); }
+
+  /* ---------- hallazgos ---------- */
+  .findings {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 18px 22px; margin: 12px 0 28px;
+  }
+  .findings h2 { font-size: 13px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); margin: 0 0 10px; }
+  .findings ul { margin: 0; padding-left: 18px; display: grid; gap: 8px; max-width: 72ch; }
+  .findings li::marker { color: var(--serie); }
+
+  /* ---------- charts ---------- */
+  .card {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
+    padding: 18px 20px 12px; margin-bottom: 16px;
+  }
+  .card h3 { font-size: 15.5px; font-weight: 600; margin: 0 0 2px; }
+  .card .sub { font-size: 13px; color: var(--ink-2); margin: 0 0 12px; }
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 760px) { .row2 { grid-template-columns: 1fr; } }
+  .legend { display: flex; gap: 18px; font-size: 12.5px; color: var(--ink-2); margin: 2px 0 8px; flex-wrap: wrap; }
+  .legend .key { display: inline-flex; align-items: center; gap: 6px; }
+  .legend .swatch { width: 14px; height: 3px; border-radius: 2px; display: inline-block; }
+  .chart-box { position: relative; }
+  .chart-box svg { display: block; width: 100%; height: auto; }
+  .tip {
+    position: absolute; pointer-events: none; opacity: 0; transition: opacity .12s;
+    background: var(--ink); color: var(--page); font-size: 12px; line-height: 1.45;
+    padding: 7px 10px; border-radius: 6px; white-space: nowrap; z-index: 5;
+    transform: translate(-50%, calc(-100% - 10px));
+  }
+  .tip b { font-weight: 600; }
+
+  /* ---------- table ---------- */
+  .table-scroll { overflow-x: auto; }
+  table { border-collapse: collapse; width: 100%; font-size: 13.5px; min-width: 720px; }
+  th, td { padding: 8px 10px; text-align: right; font-variant-numeric: tabular-nums; }
+  th:first-child, td:first-child { text-align: left; }
+  thead th {
+    font-size: 11.5px; font-weight: 600; letter-spacing: 0.05em; text-transform: uppercase;
+    color: var(--muted); border-bottom: 1px solid var(--baseline);
+  }
+  tbody tr { border-bottom: 1px solid var(--grid); }
+  tbody tr:hover { background: var(--serie-wash); }
+  tfoot td { font-weight: 600; border-top: 1px solid var(--baseline); }
+  .pos { color: var(--good); }
+
+  /* ---------- context / notes ---------- */
+  .bench-strip {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px;
+  }
+  @media (max-width: 760px) { .bench-strip { grid-template-columns: 1fr; } }
+  .bench {
+    background: var(--surface); border: 1px solid var(--border); border-radius: 10px; padding: 14px 18px;
+  }
+  .bench .label { font-size: 12.5px; color: var(--ink-2); }
+  .bench .value { font-size: 22px; font-weight: 600; }
+  .bench .note { font-size: 12.5px; color: var(--ink-2); margin-top: 2px; }
+
+  .notes { color: var(--ink-2); font-size: 13px; max-width: 78ch; }
+  .notes h2 { font-size: 13px; font-weight: 600; letter-spacing: 0.07em; text-transform: uppercase; color: var(--muted); margin: 28px 0 8px; }
+  .notes p { margin: 0 0 8px; }
+  footer { margin-top: 32px; font-size: 12px; color: var(--muted); border-top: 1px solid var(--grid); padding-top: 14px; }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header>
+    <p class="eyebrow">DEVIART SA de CV · Panel de Dirección</p>
+    <h1>Cuenta de Inversión BBVA — Rendimiento anual</h1>
+    <p class="meta">Fondo <strong>BBVAPYM serie B‑5</strong> (deuda de corto plazo, calificación AAA/1) · Contrato <strong>2058618097</strong> · Periodo <strong>1 jul 2025 – 30 jun 2026</strong></p>
+  </header>
+
+  <div class="kpis">
+    <div class="kpi hero">
+      <div class="label">Rendimiento anual neto</div>
+      <div class="value">5.75%</div>
+      <div class="delta">TIR con flujos reales: 5.73%</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Ganancia generada (12 meses)</div>
+      <div class="value">$754,885</div>
+      <div class="delta up">Positiva los 12 meses</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Saldo promedio invertido</div>
+      <div class="value">$13.62 M</div>
+      <div class="delta">Posición al cierre: $16.09 M</div>
+    </div>
+    <div class="kpi">
+      <div class="label">Contra referencias</div>
+      <div class="value">+2.4 pp</div>
+      <div class="delta">vs inflación (3.37%) · <span style="color:var(--bad)">−1.25 pp</span> vs CETES 28d</div>
+    </div>
+  </div>
+
+  <div class="findings">
+    <h2>Lectura ejecutiva</h2>
+    <ul>
+      <li>La cuenta generó <strong>$754,885</strong> en el año con un rendimiento neto de <strong>5.75%</strong>, ganancia positiva y estable todos los meses (entre $54 mil y $74 mil mensuales).</li>
+      <li>El rendimiento <strong>supera a la inflación por +2.4 puntos</strong> (rendimiento real positivo), pero quedó <strong>1.25 puntos por debajo de CETES 28 días</strong> (7.00% promedio): un costo de oportunidad de ≈ <strong>$171 mil</strong> en el año, que es el precio de la liquidez inmediata que la empresa usa activamente (19 movimientos de tesorería en el periodo).</li>
+      <li>La tasa del fondo <strong>va a la baja siguiendo los recortes de Banxico</strong>: de ≈ 6.6% anualizado en julio 2025 a ≈ 4.6% en junio 2026. Con la tasa objetivo en 6.50% y el ciclo de recortes terminado (anuncio del 25 jun 2026), el rendimiento debería estabilizarse cerca del nivel actual.</li>
+      <li>La posición creció de <strong>$10.78 M a $16.09 M</strong>: $4.56 M de aportaciones netas más $0.75 M de rendimientos.</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>Tasa anualizada mensual: fondo vs CETES 28 días</h3>
+    <p class="sub">Rendimiento neto mensual reportado por BBVA (criterio CNBV), anualizado por días del periodo, contra el promedio mensual de las subastas primarias de CETES 28d (Banxico).</p>
+    <div class="legend">
+      <span class="key"><span class="swatch" style="background:var(--serie)"></span>Fondo BBVAPYM B‑5</span>
+      <span class="key"><span class="swatch" style="background:var(--bench)"></span>CETES 28 días</span>
+    </div>
+    <div class="chart-box" id="chart-tasas"></div>
+  </div>
+
+  <div class="row2">
+    <div class="card">
+      <h3>Ganancia mensual</h3>
+      <p class="sub">Pesos generados por valuación cada mes, ya descontando aportaciones y retiros.</p>
+      <div class="chart-box" id="chart-ganancia"></div>
+    </div>
+    <div class="card">
+      <h3>Saldo al cierre de mes</h3>
+      <p class="sub">Valor de mercado de la posición. El crecimiento combina aportaciones netas y rendimiento.</p>
+      <div class="chart-box" id="chart-saldo"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>Detalle mensual</h3>
+    <p class="sub">Cifras tomadas de los 12 estados de cuenta oficiales; el encadenamiento de saldos entre meses cuadra sin diferencias.</p>
+    <div class="table-scroll">
+      <table id="tabla"></table>
+    </div>
+  </div>
+
+  <div class="bench-strip">
+    <div class="bench">
+      <div class="label">CETES 28 días (promedio jul 25 – jun 26)</div>
+      <div class="value">7.00%</div>
+      <div class="note">52 subastas primarias, SIE Banxico. Rango: 7.85% → 6.25%.</div>
+    </div>
+    <div class="bench">
+      <div class="label">Inflación anual (INPC, jun 2026)</div>
+      <div class="value">3.37%</div>
+      <div class="note">La menor desde dic 2020. Rendimiento real de la cuenta: ≈ +2.4 pp.</div>
+    </div>
+    <div class="bench">
+      <div class="label">Tasa objetivo Banxico (jun 2026)</div>
+      <div class="value">6.50%</div>
+      <div class="note">Sin cambios el 25 jun 2026; fin del ciclo de recortes iniciado en mar 2024.</div>
+    </div>
+  </div>
+
+  <div class="notes">
+    <h2>Notas y metodología</h2>
+    <p><strong>ISR retenido:</strong> $98,037.89 en los 12 meses. Es acreditable contra los pagos provisionales o el ISR anual de la empresa (arts. 54, 87 y 88 LISR), es decir, no es un costo perdido.</p>
+    <p><strong>Perfil del fondo:</strong> BBVAPYM es un fondo de deuda de corto plazo con la máxima calificación crediticia (AAA/1; Moody's AAA‑BF.MX/MR1) y liquidez prácticamente inmediata. El 1 jul 2025 BBVA reclasificó la posición de la serie B‑4 a la B‑5 (mismo fondo, serie con mejores condiciones por el tamaño del saldo).</p>
+    <p><strong>Metodología:</strong> los datos provienen de los 12 estados de cuenta oficiales BBVA (jul 2025 – jun 2026). El rendimiento anual de 5.75% compone los 12 rendimientos netos mensuales que reporta BBVA bajo el criterio de la CNBV; la TIR de 5.73% se calculó con las fechas y montos reales de las 19 aportaciones/retiros del periodo, y ambas medidas convergen. La ganancia mensual en pesos se verificó contra el rendimiento reportado, el encadenamiento de saldos entre meses y el ISR acumulado, sin encontrar inconsistencias.</p>
+    <p><strong>Comparación con CETES:</strong> es una referencia de tasa libre de riesgo con liquidez semanal; el fondo cobra su comisión dentro del precio, lo que explica la mayor parte del diferencial de −1.25 pp.</p>
+  </div>
+
+  <footer>
+    Elaborado para Dirección General · DEVIART SA de CV · Fuente: estados de cuenta BBVA Fondos de Inversión, SIE Banxico e INEGI · Julio 2026
+  </footer>
+</div>
+
+<script>
+(function () {
+  var MESES = ['Jul 25','Ago','Sep','Oct','Nov','Dic','Ene 26','Feb','Mar','Abr','May','Jun'];
+  var FONDO = [6.59, 6.92, 6.33, 6.59, 5.87, 5.89, 5.60, 5.27, 4.95, 5.48, 4.53, 4.62];
+  var CETES = [7.67, 7.39, 7.29, 7.25, 7.19, 7.16, 7.00, 6.86, 6.81, 6.58, 6.47, 6.29];
+  var RETMES = [0.56, 0.55, 0.52, 0.56, 0.45, 0.50, 0.46, 0.39, 0.42, 0.45, 0.36, 0.38];
+  var GANANCIA = [70846.64, 57055.75, 60448.71, 65847.94, 61535.62, 57944.11, 53772.54, 57832.92, 65581.49, 73973.18, 63333.23, 66713.29];
+  var SALDO = [10348833.97, 10405889.72, 10216260.91, 12482059.55, 13543594.54, 11101493.97, 12655208.24, 15212962.46, 15778524.94, 16352469.59, 18115726.06, 16091537.82];
+  var SALDO_INI = [10778093.92, 10348833.97, 10405889.72, 10216260.91, 12482059.55, 13543594.54, 11101493.97, 12655208.24, 15212962.46, 15778524.94, 16352469.59, 18115726.06];
+  var COMPRAS = [3999986.83, 0, 1749953.20, 2199950.70, 999999.37, 0, 1499941.73, 2499921.30, 499980.99, 499971.47, 1699923.24, 0];
+  var VENTAS = [4500073.54, 0, 2000030.72, 0, 0, 2500044.68, 0, 0, 0, 0, 0, 2090901.53];
+  var ISR = [5279.12, 4369.56, 4707.56, 5258.75, 5147.53, 5117.83, 9094.65, 9827.88, 11260.05, 13209.18, 11882.75, 12883.03];
+
+  var fmt$ = function (n, dec) {
+    return '$' + n.toLocaleString('es-MX', { minimumFractionDigits: dec === undefined ? 0 : dec, maximumFractionDigits: dec === undefined ? 0 : dec });
+  };
+  var NS = 'http://www.w3.org/2000/svg';
+  // fill/stroke van al atributo style: var(--x) no se resuelve en atributos de presentación SVG
+  function el(tag, attrs, parent) {
+    var e = document.createElementNS(NS, tag);
+    var style = attrs.style ? attrs.style + ';' : '';
+    for (var k in attrs) {
+      if (k === 'style') continue;
+      if (k === 'fill' || k === 'stroke') { style += k + ':' + attrs[k] + ';'; }
+      else e.setAttribute(k, attrs[k]);
+    }
+    if (style) e.setAttribute('style', style);
+    if (parent) parent.appendChild(e);
+    return e;
+  }
+  function makeTip(box) {
+    var t = document.createElement('div');
+    t.className = 'tip';
+    box.appendChild(t);
+    return t;
+  }
+  function placeTip(tip, box, clientX, clientY, html) {
+    var r = box.getBoundingClientRect();
+    tip.innerHTML = html;
+    tip.style.left = (clientX - r.left) + 'px';
+    tip.style.top = (clientY - r.top) + 'px';
+    tip.style.opacity = 1;
+  }
+
+  /* ---------- line chart: fondo vs CETES ---------- */
+  (function () {
+    var box = document.getElementById('chart-tasas');
+    var W = 960, H = 320, m = { t: 16, r: 88, b: 34, l: 44 };
+    var iw = W - m.l - m.r, ih = H - m.t - m.b;
+    var y0 = 4, y1 = 8;
+    var svg = el('svg', { viewBox: '0 0 ' + W + ' ' + H, role: 'img',
+      'aria-label': 'Tasa anualizada mensual del fondo contra CETES 28 días, julio 2025 a junio 2026' }, null);
+    box.appendChild(svg);
+    var X = function (i) { return m.l + iw * i / (MESES.length - 1); };
+    var Y = function (v) { return m.t + ih * (1 - (v - y0) / (y1 - y0)); };
+
+    for (var g = y0; g <= y1; g++) {
+      el('line', { x1: m.l, x2: W - m.r, y1: Y(g), y2: Y(g), stroke: 'var(--grid)', 'stroke-width': 1 }, svg);
+      el('text', { x: m.l - 8, y: Y(g) + 4, 'text-anchor': 'end', 'font-size': 11.5,
+        fill: 'var(--muted)', style: 'font-variant-numeric:tabular-nums' }, svg).textContent = g + '%';
+    }
+    MESES.forEach(function (mes, i) {
+      el('text', { x: X(i), y: H - 12, 'text-anchor': 'middle', 'font-size': 11.5, fill: 'var(--muted)' }, svg).textContent = mes;
+    });
+    el('line', { x1: m.l, x2: W - m.r, y1: Y(y0), y2: Y(y0), stroke: 'var(--baseline)', 'stroke-width': 1 }, svg);
+
+    function path(data) {
+      return data.map(function (v, i) { return (i ? 'L' : 'M') + X(i) + ',' + Y(v); }).join(' ');
+    }
+    // wash under the fund line
+    el('path', { d: path(FONDO) + ' L' + X(11) + ',' + Y(y0) + ' L' + X(0) + ',' + Y(y0) + ' Z', fill: 'var(--serie-wash)' }, svg);
+    el('path', { d: path(CETES), fill: 'none', stroke: 'var(--bench)', 'stroke-width': 2, 'stroke-linejoin': 'round', 'stroke-linecap': 'round' }, svg);
+    el('path', { d: path(FONDO), fill: 'none', stroke: 'var(--serie)', 'stroke-width': 2, 'stroke-linejoin': 'round', 'stroke-linecap': 'round' }, svg);
+
+    // end markers + direct labels
+    [[FONDO, 'var(--serie)', 'Fondo 4.62%'], [CETES, 'var(--bench)', 'CETES 6.29%']].forEach(function (s) {
+      el('circle', { cx: X(11), cy: Y(s[0][11]), r: 4.5, fill: s[1], stroke: 'var(--surface)', 'stroke-width': 2 }, svg);
+      el('text', { x: X(11) + 9, y: Y(s[0][11]) + 4, 'font-size': 11.5, 'font-weight': 600, fill: 'var(--ink-2)' }, svg).textContent = s[2];
+    });
+
+    // hover layer: crosshair + tooltip
+    var cross = el('line', { y1: m.t, y2: m.t + ih, stroke: 'var(--baseline)', 'stroke-width': 1, opacity: 0 }, svg);
+    var dotF = el('circle', { r: 5, fill: 'var(--serie)', stroke: 'var(--surface)', 'stroke-width': 2, opacity: 0 }, svg);
+    var dotC = el('circle', { r: 5, fill: 'var(--bench)', stroke: 'var(--surface)', 'stroke-width': 2, opacity: 0 }, svg);
+    var tip = makeTip(box);
+    svg.addEventListener('mousemove', function (ev) {
+      var pt = svg.createSVGPoint(); pt.x = ev.clientX; pt.y = ev.clientY;
+      var p = pt.matrixTransform(svg.getScreenCTM().inverse());
+      var i = Math.round((p.x - m.l) / iw * (MESES.length - 1));
+      if (i < 0 || i > 11) return;
+      cross.setAttribute('x1', X(i)); cross.setAttribute('x2', X(i)); cross.setAttribute('opacity', 1);
+      dotF.setAttribute('cx', X(i)); dotF.setAttribute('cy', Y(FONDO[i])); dotF.setAttribute('opacity', 1);
+      dotC.setAttribute('cx', X(i)); dotC.setAttribute('cy', Y(CETES[i])); dotC.setAttribute('opacity', 1);
+      placeTip(tip, box, ev.clientX, ev.clientY,
+        '<b>' + MESES[i] + '</b><br>Fondo: <b>' + FONDO[i].toFixed(2) + '%</b> (' + RETMES[i].toFixed(2) + '% en el mes)<br>CETES 28d: <b>' + CETES[i].toFixed(2) + '%</b>');
+    });
+    svg.addEventListener('mouseleave', function () {
+      [cross, dotF, dotC].forEach(function (n) { n.setAttribute('opacity', 0); });
+      tip.style.opacity = 0;
+    });
+  })();
+
+  /* ---------- column charts ---------- */
+  function columns(boxId, data, maxV, gridStep, fmtVal, tipHtml, labelIdx) {
+    var box = document.getElementById(boxId);
+    var W = 480, H = 260, m = { t: 18, r: 8, b: 30, l: 46 };
+    var iw = W - m.l - m.r, ih = H - m.t - m.b;
+    var svg = el('svg', { viewBox: '0 0 ' + W + ' ' + H, role: 'img' }, null);
+    box.appendChild(svg);
+    var slot = iw / data.length;
+    var bw = Math.min(24, slot - 10);
+    var Y = function (v) { return m.t + ih * (1 - v / maxV); };
+
+    for (var g = 0; g <= maxV; g += gridStep) {
+      el('line', { x1: m.l, x2: W - m.r, y1: Y(g), y2: Y(g), stroke: 'var(--grid)', 'stroke-width': 1 }, svg);
+      el('text', { x: m.l - 6, y: Y(g) + 3.5, 'text-anchor': 'end', 'font-size': 10.5,
+        fill: 'var(--muted)', style: 'font-variant-numeric:tabular-nums' }, svg).textContent = fmtVal(g);
+    }
+    data.forEach(function (v, i) {
+      var x = m.l + slot * i + (slot - bw) / 2;
+      var y = Y(v), h = Y(0) - y, r = Math.min(4, h);
+      var d = 'M' + x + ',' + (y + h) + ' L' + x + ',' + (y + r) +
+              ' Q' + x + ',' + y + ' ' + (x + r) + ',' + y +
+              ' L' + (x + bw - r) + ',' + y +
+              ' Q' + (x + bw) + ',' + y + ' ' + (x + bw) + ',' + (y + r) +
+              ' L' + (x + bw) + ',' + (y + h) + ' Z';
+      var bar = el('path', { d: d, fill: 'var(--serie)' }, svg);
+      // invisible widened hit target
+      var hit = el('rect', { x: m.l + slot * i, y: m.t, width: slot, height: ih, fill: 'transparent' }, svg);
+      var tip = box._tip || (box._tip = makeTip(box));
+      hit.addEventListener('mousemove', function (ev) {
+        bar.style.fill = 'var(--navy)';
+        placeTip(tip, box, ev.clientX, ev.clientY, tipHtml(i));
+      });
+      hit.addEventListener('mouseleave', function () {
+        bar.style.fill = 'var(--serie)';
+        tip.style.opacity = 0;
+      });
+      if (labelIdx.indexOf(i) >= 0) {
+        el('text', { x: x + bw / 2, y: y - 6, 'text-anchor': 'middle', 'font-size': 10.5,
+          'font-weight': 600, fill: 'var(--ink-2)', style: 'font-variant-numeric:tabular-nums' }, svg).textContent = fmtVal(v);
+      }
+      if (i % 2 === 0) {
+        el('text', { x: m.l + slot * i + slot / 2, y: H - 10, 'text-anchor': 'middle', 'font-size': 10.5, fill: 'var(--muted)' }, svg).textContent = MESES[i];
+      }
+    });
+    el('line', { x1: m.l, x2: W - m.r, y1: Y(0), y2: Y(0), stroke: 'var(--baseline)', 'stroke-width': 1 }, svg);
+  }
+
+  columns('chart-ganancia', GANANCIA, 80000, 20000,
+    function (v) { return v === 0 ? '0' : '$' + Math.round(v / 1000) + ' mil'; },
+    function (i) { return '<b>' + MESES[i] + '</b><br>Ganancia: <b>' + fmt$(GANANCIA[i], 2) + '</b><br>Rendimiento del mes: ' + RETMES[i].toFixed(2) + '%'; },
+    [9]);
+
+  columns('chart-saldo', SALDO, 20000000, 5000000,
+    function (v) { var mm = v / 1000000; return v === 0 ? '0' : '$' + (mm % 1 === 0 ? mm : mm.toFixed(1)) + ' M'; },
+    function (i) {
+      var neto = COMPRAS[i] - VENTAS[i];
+      return '<b>' + MESES[i] + '</b><br>Saldo al cierre: <b>' + fmt$(SALDO[i]) + '</b><br>Flujo neto del mes: ' + (neto >= 0 ? '+' : '−') + fmt$(Math.abs(neto));
+    },
+    [10]);
+
+  /* ---------- table ---------- */
+  (function () {
+    var t = document.getElementById('tabla');
+    var head = '<thead><tr><th>Mes</th><th>Saldo inicial</th><th>Aportaciones</th><th>Retiros</th><th>Ganancia</th><th>Saldo final</th><th>Rend. mes</th><th>Anualizado</th><th>ISR retenido</th></tr></thead>';
+    var ANU = [6.59, 6.92, 6.33, 6.59, 5.87, 5.89, 5.60, 5.27, 4.95, 5.48, 4.53, 4.62];
+    var LBL = ['Jul 2025','Ago 2025','Sep 2025','Oct 2025','Nov 2025','Dic 2025','Ene 2026','Feb 2026','Mar 2026','Abr 2026','May 2026','Jun 2026'];
+    var rows = LBL.map(function (mes, i) {
+      return '<tr><td>' + mes + '</td><td>' + fmt$(SALDO_INI[i], 2) + '</td><td>' + (COMPRAS[i] ? fmt$(COMPRAS[i], 2) : '—') +
+        '</td><td>' + (VENTAS[i] ? fmt$(VENTAS[i], 2) : '—') + '</td><td class="pos">' + fmt$(GANANCIA[i], 2) +
+        '</td><td>' + fmt$(SALDO[i], 2) + '</td><td>' + RETMES[i].toFixed(2) + '%</td><td>' + ANU[i].toFixed(2) + '%</td><td>' + fmt$(ISR[i], 2) + '</td></tr>';
+    }).join('');
+    var sum = function (a) { return a.reduce(function (s, v) { return s + v; }, 0); };
+    var foot = '<tfoot><tr><td>Total anual</td><td></td><td>' + fmt$(sum(COMPRAS), 2) + '</td><td>' + fmt$(sum(VENTAS), 2) +
+      '</td><td class="pos">' + fmt$(sum(GANANCIA), 2) + '</td><td>' + fmt$(SALDO[11], 2) + '</td><td colspan="2">5.75% compuesto</td><td>' + fmt$(sum(ISR), 2) + '</td></tr></tfoot>';
+    t.innerHTML = head + '<tbody>' + rows + '</tbody>' + foot;
+  })();
+})();
+</script>
+</body>
+</html>
