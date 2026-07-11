@@ -64,7 +64,6 @@
   }
   .wrap { max-width: 1060px; margin: 0 auto; padding: 40px 24px 64px; }
 
-  /* ---------- header ---------- */
   header { margin-bottom: 28px; }
   .eyebrow {
     font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
@@ -78,7 +77,6 @@
   .meta { color: var(--ink-2); font-size: 14px; margin: 0; }
   .meta strong { color: var(--ink); font-weight: 600; }
 
-  /* ---------- KPI row ---------- */
   .kpis {
     display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
     margin: 24px 0 12px;
@@ -95,7 +93,6 @@
   .kpi .delta.up { color: var(--good); }
   .kpi .delta.down { color: var(--bad); }
 
-  /* ---------- hallazgos ---------- */
   .findings {
     background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
     padding: 18px 22px; margin: 12px 0 28px;
@@ -104,7 +101,6 @@
   .findings ul { margin: 0; padding-left: 18px; display: grid; gap: 8px; max-width: 72ch; }
   .findings li::marker { color: var(--serie); }
 
-  /* ---------- charts ---------- */
   .card {
     background: var(--surface); border: 1px solid var(--border); border-radius: 10px;
     padding: 18px 20px 12px; margin-bottom: 16px;
@@ -126,7 +122,6 @@
   }
   .tip b { font-weight: 600; }
 
-  /* ---------- table ---------- */
   .table-scroll { overflow-x: auto; }
   table { border-collapse: collapse; width: 100%; font-size: 13.5px; min-width: 720px; }
   th, td { padding: 8px 10px; text-align: right; font-variant-numeric: tabular-nums; }
@@ -140,7 +135,6 @@
   tfoot td { font-weight: 600; border-top: 1px solid var(--baseline); }
   .pos { color: var(--good); }
 
-  /* ---------- context / notes ---------- */
   .bench-strip {
     display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 16px;
   }
@@ -159,24 +153,23 @@
 </style>
 </head>
 <body>
-
 <div class="wrap">
   <header>
     <p class="eyebrow">DEVIART SA de CV · Panel de Dirección</p>
     <h1>Cuenta de Inversión BBVA — Rendimiento anual</h1>
-    <p class="meta">Fondo <strong>BBVAPYM serie B‑5</strong> (deuda de corto plazo, calificación AAA/1) · Contrato <strong>2058618097</strong> · Periodo <strong>1 jul 2025 – 30 jun 2026</strong></p>
+    <p class="meta">Fondo <strong>BBVAPYM serie B-5 (deuda corto plazo, AAA/1; Moody's AAA-BF.MX/MR1)</strong> · Contrato <strong>2058618097</strong> · Periodo <strong>1 jul 2025 – 30 jun 2026</strong></p>
   </header>
 
   <div class="kpis">
     <div class="kpi hero">
-      <div class="label">Rendimiento anual neto</div>
+      <div class="label">Rendimiento anual neto (últimos 12 meses)</div>
       <div class="value">5.75%</div>
       <div class="delta">TIR con flujos reales: 5.73%</div>
     </div>
     <div class="kpi">
-      <div class="label">Ganancia generada (12 meses)</div>
+      <div class="label">Ganancia generada</div>
       <div class="value">$754,885</div>
-      <div class="delta up">Positiva los 12 meses</div>
+      <div class="delta up">Positiva todos los meses</div>
     </div>
     <div class="kpi">
       <div class="label">Saldo promedio invertido</div>
@@ -194,7 +187,7 @@
     <h2>Lectura ejecutiva</h2>
     <ul>
       <li>La cuenta generó <strong>$754,885</strong> en el año con un rendimiento neto de <strong>5.75%</strong>, ganancia positiva y estable todos los meses (entre $54 mil y $74 mil mensuales).</li>
-      <li>El rendimiento <strong>supera a la inflación por +2.4 puntos</strong> (rendimiento real positivo), pero quedó <strong>1.25 puntos por debajo de CETES 28 días</strong> (7.00% promedio): un costo de oportunidad de ≈ <strong>$171 mil</strong> en el año, que es el precio de la liquidez inmediata que la empresa usa activamente (19 movimientos de tesorería en el periodo).</li>
+      <li>El rendimiento <strong>supera a la inflación por +2.4 puntos</strong> (rendimiento real positivo), pero quedó <strong>1.25 puntos por debajo de CETES 28 días</strong> (7.00% promedio): un costo de oportunidad de ≈ <strong>$170 mil</strong> en el año, que es el precio de la liquidez inmediata que la empresa usa activamente (24 movimientos de tesorería en el periodo).</li>
       <li>La tasa del fondo <strong>va a la baja siguiendo los recortes de Banxico</strong>: de ≈ 6.6% anualizado en julio 2025 a ≈ 4.6% en junio 2026. Con la tasa objetivo en 6.50% y el ciclo de recortes terminado (anuncio del 25 jun 2026), el rendimiento debería estabilizarse cerca del nivel actual.</li>
       <li>La posición creció de <strong>$10.78 M a $16.09 M</strong>: $4.56 M de aportaciones netas más $0.75 M de rendimientos.</li>
     </ul>
@@ -235,7 +228,7 @@
     <div class="bench">
       <div class="label">CETES 28 días (promedio jul 25 – jun 26)</div>
       <div class="value">7.00%</div>
-      <div class="note">52 subastas primarias, SIE Banxico. Rango: 7.85% → 6.25%.</div>
+      <div class="note">Promedios mensuales de subastas primarias, SIE Banxico. Rango: 7.67% → 6.29%.</div>
     </div>
     <div class="bench">
       <div class="label">Inflación anual (INPC, jun 2026)</div>
@@ -252,8 +245,8 @@
   <div class="notes">
     <h2>Notas y metodología</h2>
     <p><strong>ISR retenido:</strong> $98,037.89 en los 12 meses. Es acreditable contra los pagos provisionales o el ISR anual de la empresa (arts. 54, 87 y 88 LISR), es decir, no es un costo perdido.</p>
-    <p><strong>Perfil del fondo:</strong> BBVAPYM es un fondo de deuda de corto plazo con la máxima calificación crediticia (AAA/1; Moody's AAA‑BF.MX/MR1) y liquidez prácticamente inmediata. El 1 jul 2025 BBVA reclasificó la posición de la serie B‑4 a la B‑5 (mismo fondo, serie con mejores condiciones por el tamaño del saldo).</p>
-    <p><strong>Metodología:</strong> los datos provienen de los 12 estados de cuenta oficiales BBVA (jul 2025 – jun 2026). El rendimiento anual de 5.75% compone los 12 rendimientos netos mensuales que reporta BBVA bajo el criterio de la CNBV; la TIR de 5.73% se calculó con las fechas y montos reales de las 19 aportaciones/retiros del periodo, y ambas medidas convergen. La ganancia mensual en pesos se verificó contra el rendimiento reportado, el encadenamiento de saldos entre meses y el ISR acumulado, sin encontrar inconsistencias.</p>
+    <p><strong>Perfil del fondo:</strong> BBVAPYM es un fondo de deuda de corto plazo con la máxima calificación crediticia (AAA/1; Moody's AAA‑BF.MX/MR1) y liquidez prácticamente inmediata. El 01/07/2025 BBVA reclasificó la posición de la serie B-4 a la B-5.</p>
+    <p><strong>Metodología:</strong> los datos provienen de los 12 estados de cuenta oficiales BBVA más recientes. El rendimiento compuesto usa los rendimientos netos mensuales que reporta BBVA bajo el criterio de la CNBV; la TIR se calculó con las fechas y montos reales de las 24 aportaciones/retiros del periodo, y ambas medidas convergen. La ganancia mensual en pesos se verificó contra el rendimiento reportado, el encadenamiento de saldos entre meses y el ISR acumulado.</p>
     <p><strong>Comparación con CETES:</strong> es una referencia de tasa libre de riesgo con liquidez semanal; el fondo cobra su comisión dentro del precio, lo que explica la mayor parte del diferencial de −1.25 pp.</p>
   </div>
 
@@ -264,16 +257,18 @@
 
 <script>
 (function () {
-  var MESES = ['Jul 25','Ago','Sep','Oct','Nov','Dic','Ene 26','Feb','Mar','Abr','May','Jun'];
+  var MESES = ['Jul 25', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic', 'Ene 26', 'Feb', 'Mar', 'Abr', 'May', 'Jun'];
+  var LBL = ['Jul 2025', 'Ago 2025', 'Sep 2025', 'Oct 2025', 'Nov 2025', 'Dic 2025', 'Ene 2026', 'Feb 2026', 'Mar 2026', 'Abr 2026', 'May 2026', 'Jun 2026'];
   var FONDO = [6.59, 6.92, 6.33, 6.59, 5.87, 5.89, 5.60, 5.27, 4.95, 5.48, 4.53, 4.62];
   var CETES = [7.67, 7.39, 7.29, 7.25, 7.19, 7.16, 7.00, 6.86, 6.81, 6.58, 6.47, 6.29];
   var RETMES = [0.56, 0.55, 0.52, 0.56, 0.45, 0.50, 0.46, 0.39, 0.42, 0.45, 0.36, 0.38];
   var GANANCIA = [70846.64, 57055.75, 60448.71, 65847.94, 61535.62, 57944.11, 53772.54, 57832.92, 65581.49, 73973.18, 63333.23, 66713.29];
   var SALDO = [10348833.97, 10405889.72, 10216260.91, 12482059.55, 13543594.54, 11101493.97, 12655208.24, 15212962.46, 15778524.94, 16352469.59, 18115726.06, 16091537.82];
   var SALDO_INI = [10778093.92, 10348833.97, 10405889.72, 10216260.91, 12482059.55, 13543594.54, 11101493.97, 12655208.24, 15212962.46, 15778524.94, 16352469.59, 18115726.06];
-  var COMPRAS = [3999986.83, 0, 1749953.20, 2199950.70, 999999.37, 0, 1499941.73, 2499921.30, 499980.99, 499971.47, 1699923.24, 0];
-  var VENTAS = [4500073.54, 0, 2000030.72, 0, 0, 2500044.68, 0, 0, 0, 0, 0, 2090901.53];
+  var COMPRAS = [3999986.83, 0.00, 1749953.20, 2199950.70, 999999.37, 0.00, 1499941.73, 2499921.30, 499980.99, 499971.47, 1699923.24, 0.00];
+  var VENTAS = [4500073.54, 0.00, 2000030.72, 0.00, 0.00, 2500044.68, 0.00, 0.00, 0.00, 0.00, 0.00, 2090901.53];
   var ISR = [5279.12, 4369.56, 4707.56, 5258.75, 5147.53, 5117.83, 9094.65, 9827.88, 11260.05, 13209.18, 11882.75, 12883.03];
+  var N = MESES.length;
 
   var fmt$ = function (n, dec) {
     return '$' + n.toLocaleString('es-MX', { minimumFractionDigits: dec === undefined ? 0 : dec, maximumFractionDigits: dec === undefined ? 0 : dec });
@@ -313,9 +308,9 @@
     var iw = W - m.l - m.r, ih = H - m.t - m.b;
     var y0 = 4, y1 = 8;
     var svg = el('svg', { viewBox: '0 0 ' + W + ' ' + H, role: 'img',
-      'aria-label': 'Tasa anualizada mensual del fondo contra CETES 28 días, julio 2025 a junio 2026' }, null);
+      'aria-label': 'Tasa anualizada mensual del fondo contra CETES 28 días' }, null);
     box.appendChild(svg);
-    var X = function (i) { return m.l + iw * i / (MESES.length - 1); };
+    var X = function (i) { return m.l + iw * i / (N - 1); };
     var Y = function (v) { return m.t + ih * (1 - (v - y0) / (y1 - y0)); };
 
     for (var g = y0; g <= y1; g++) {
@@ -331,18 +326,15 @@
     function path(data) {
       return data.map(function (v, i) { return (i ? 'L' : 'M') + X(i) + ',' + Y(v); }).join(' ');
     }
-    // wash under the fund line
-    el('path', { d: path(FONDO) + ' L' + X(11) + ',' + Y(y0) + ' L' + X(0) + ',' + Y(y0) + ' Z', fill: 'var(--serie-wash)' }, svg);
+    el('path', { d: path(FONDO) + ' L' + X(N - 1) + ',' + Y(y0) + ' L' + X(0) + ',' + Y(y0) + ' Z', fill: 'var(--serie-wash)' }, svg);
     el('path', { d: path(CETES), fill: 'none', stroke: 'var(--bench)', 'stroke-width': 2, 'stroke-linejoin': 'round', 'stroke-linecap': 'round' }, svg);
     el('path', { d: path(FONDO), fill: 'none', stroke: 'var(--serie)', 'stroke-width': 2, 'stroke-linejoin': 'round', 'stroke-linecap': 'round' }, svg);
 
-    // end markers + direct labels
     [[FONDO, 'var(--serie)', 'Fondo 4.62%'], [CETES, 'var(--bench)', 'CETES 6.29%']].forEach(function (s) {
-      el('circle', { cx: X(11), cy: Y(s[0][11]), r: 4.5, fill: s[1], stroke: 'var(--surface)', 'stroke-width': 2 }, svg);
-      el('text', { x: X(11) + 9, y: Y(s[0][11]) + 4, 'font-size': 11.5, 'font-weight': 600, fill: 'var(--ink-2)' }, svg).textContent = s[2];
+      el('circle', { cx: X(N - 1), cy: Y(s[0][N - 1]), r: 4.5, fill: s[1], stroke: 'var(--surface)', 'stroke-width': 2 }, svg);
+      el('text', { x: X(N - 1) + 9, y: Y(s[0][N - 1]) + 4, 'font-size': 11.5, 'font-weight': 600, fill: 'var(--ink-2)' }, svg).textContent = s[2];
     });
 
-    // hover layer: crosshair + tooltip
     var cross = el('line', { y1: m.t, y2: m.t + ih, stroke: 'var(--baseline)', 'stroke-width': 1, opacity: 0 }, svg);
     var dotF = el('circle', { r: 5, fill: 'var(--serie)', stroke: 'var(--surface)', 'stroke-width': 2, opacity: 0 }, svg);
     var dotC = el('circle', { r: 5, fill: 'var(--bench)', stroke: 'var(--surface)', 'stroke-width': 2, opacity: 0 }, svg);
@@ -350,8 +342,8 @@
     svg.addEventListener('mousemove', function (ev) {
       var pt = svg.createSVGPoint(); pt.x = ev.clientX; pt.y = ev.clientY;
       var p = pt.matrixTransform(svg.getScreenCTM().inverse());
-      var i = Math.round((p.x - m.l) / iw * (MESES.length - 1));
-      if (i < 0 || i > 11) return;
+      var i = Math.round((p.x - m.l) / iw * (N - 1));
+      if (i < 0 || i > N - 1) return;
       cross.setAttribute('x1', X(i)); cross.setAttribute('x2', X(i)); cross.setAttribute('opacity', 1);
       dotF.setAttribute('cx', X(i)); dotF.setAttribute('cy', Y(FONDO[i])); dotF.setAttribute('opacity', 1);
       dotC.setAttribute('cx', X(i)); dotC.setAttribute('cy', Y(CETES[i])); dotC.setAttribute('opacity', 1);
@@ -389,7 +381,6 @@
               ' Q' + (x + bw) + ',' + y + ' ' + (x + bw) + ',' + (y + r) +
               ' L' + (x + bw) + ',' + (y + h) + ' Z';
       var bar = el('path', { d: d, fill: 'var(--serie)' }, svg);
-      // invisible widened hit target
       var hit = el('rect', { x: m.l + slot * i, y: m.t, width: slot, height: ih, fill: 'transparent' }, svg);
       var tip = box._tip || (box._tip = makeTip(box));
       hit.addEventListener('mousemove', function (ev) {
@@ -428,16 +419,15 @@
   (function () {
     var t = document.getElementById('tabla');
     var head = '<thead><tr><th>Mes</th><th>Saldo inicial</th><th>Aportaciones</th><th>Retiros</th><th>Ganancia</th><th>Saldo final</th><th>Rend. mes</th><th>Anualizado</th><th>ISR retenido</th></tr></thead>';
-    var ANU = [6.59, 6.92, 6.33, 6.59, 5.87, 5.89, 5.60, 5.27, 4.95, 5.48, 4.53, 4.62];
-    var LBL = ['Jul 2025','Ago 2025','Sep 2025','Oct 2025','Nov 2025','Dic 2025','Ene 2026','Feb 2026','Mar 2026','Abr 2026','May 2026','Jun 2026'];
+    var ANU = FONDO;
     var rows = LBL.map(function (mes, i) {
       return '<tr><td>' + mes + '</td><td>' + fmt$(SALDO_INI[i], 2) + '</td><td>' + (COMPRAS[i] ? fmt$(COMPRAS[i], 2) : '—') +
         '</td><td>' + (VENTAS[i] ? fmt$(VENTAS[i], 2) : '—') + '</td><td class="pos">' + fmt$(GANANCIA[i], 2) +
         '</td><td>' + fmt$(SALDO[i], 2) + '</td><td>' + RETMES[i].toFixed(2) + '%</td><td>' + ANU[i].toFixed(2) + '%</td><td>' + fmt$(ISR[i], 2) + '</td></tr>';
     }).join('');
     var sum = function (a) { return a.reduce(function (s, v) { return s + v; }, 0); };
-    var foot = '<tfoot><tr><td>Total anual</td><td></td><td>' + fmt$(sum(COMPRAS), 2) + '</td><td>' + fmt$(sum(VENTAS), 2) +
-      '</td><td class="pos">' + fmt$(sum(GANANCIA), 2) + '</td><td>' + fmt$(SALDO[11], 2) + '</td><td colspan="2">5.75% compuesto</td><td>' + fmt$(sum(ISR), 2) + '</td></tr></tfoot>';
+    var foot = '<tfoot><tr><td>Total</td><td></td><td>' + fmt$(sum(COMPRAS), 2) + '</td><td>' + fmt$(sum(VENTAS), 2) +
+      '</td><td class="pos">' + fmt$(sum(GANANCIA), 2) + '</td><td>' + fmt$(SALDO[N - 1], 2) + '</td><td colspan="2">5.75% compuesto</td><td>' + fmt$(sum(ISR), 2) + '</td></tr></tfoot>';
     t.innerHTML = head + '<tbody>' + rows + '</tbody>' + foot;
   })();
 })();
